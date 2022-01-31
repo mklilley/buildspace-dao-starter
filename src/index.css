@@ -4,13 +4,35 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #7700ee;
-  color: #fff;
+  color: white;
   overflow-x: hidden;
 }
 #root {
   min-height: 100vh;
   display: flex;
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.bg-image {
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjAgMzAiIGhlaWdodD0iNjAwIj4NCjxkZWZzPg0KPGNsaXBQYXRoIGlkPSJ0Ij4NCjxwYXRoIGQ9Im0zMCwxNWgzMHYxNXp2MTVoLTMwemgtMzB2LTE1enYtMTVoMzB6Ii8+DQo8L2NsaXBQYXRoPg0KPC9kZWZzPg0KPHBhdGggZmlsbD0iIzAwMjQ3ZCIgZD0ibTAsMHYzMGg2MHYtMzB6Ii8+DQo8cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNiIgZD0ibTAsMGw2MCwzMG0wLTMwbC02MCwzMCIvPg0KPHBhdGggc3Ryb2tlPSIjY2YxNDJiIiBzdHJva2Utd2lkdGg9IjQiIGQ9Im0wLDBsNjAsMzBtMC0zMGwtNjAsMzAiIGNsaXAtcGF0aD0idXJsKCN0KSIvPg0KPHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEwIiBkPSJtMzAsMHYzMG0tMzAtMTVoNjAiLz4NCjxwYXRoIHN0cm9rZT0iI2NmMTQyYiIgc3Ryb2tlLXdpZHRoPSI2IiBkPSJtMzAsMHYzMG0tMzAtMTVoNjAiLz4NCjwvc3ZnPg0K);
+  color: #fff;
+  overflow-x: hidden;
+  /* Add the blur effect */
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 
 h1 {
@@ -93,7 +115,7 @@ h1 {
 
 .member-page form h5 {
   margin-top: 0;
-  color: #7700ee;
+  color: #012169;
 }
 
 .member-page form .card > div {
@@ -110,13 +132,13 @@ h1 {
   background-color: #fff;
   padding: 1rem;
   border-radius: 1rem;
-  color: #000;
+  color: #012169;
   box-shadow: 3.1px 6.2px 6.2px hsl(0deg 0% 0% / 0.4);
 }
 
 button {
   cursor: pointer;
-  background-color: #000;
+  background-color: #012169;
   color: #fff;
   border: none;
   font-weight: bold;
@@ -128,11 +150,11 @@ button {
 }
 
 button:hover {
-  background-color: #121212;
+  background-color: #c8102e;
 }
 
 button:focus {
-  background-color: #222;
+  background-color: #f5153a;
 }
 
 button:disabled {
