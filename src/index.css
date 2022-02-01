@@ -51,6 +51,17 @@ h1 {
   padding-right: 0.5rem;
   margin: auto;
   padding: 1rem;
+  text-align: center;
+}
+
+.no-wallet {
+  width: 340px;
+  max-width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
 }
 
 .error {

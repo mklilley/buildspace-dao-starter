@@ -46,6 +46,8 @@ const App = () => {
   const [isVoting, setIsVoting] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
 
+  const [rinkeby, setRinkeby] = useState(false);
+
   // Retrieve all our existing proposals from the contract.
   useEffect(() => {
     if (!hasClaimedNFT) {
@@ -193,15 +195,58 @@ const App = () => {
     );
   }
 
+  const { ethereum } = window;
+
+  if (!ethereum) {
+    return (
+      <div className="no-wallet">
+        <h2>This is a web3 site</h2>
+        <p>
+          You need to get a web3 wallet, e.g.{" "}
+          <a target="_blank" rel="noreferrer" href="https://metamask.io/">
+            MetaMask
+          </a>
+          , in order to explore UKDAO
+        </p>
+      </div>
+    );
+  } else {
+    console.log("We have the ethereum object", ethereum);
+  }
+
+  (async () => {
+    let chainId = await ethereum.request({ method: "eth_chainId" });
+    // String, hex code of the chainId of the Rinkebey test network
+    const rinkebyChainId = "0x4";
+    if (chainId !== rinkebyChainId) {
+      // alert("You are not connected to the Rinkeby Test Network!");
+      setRinkeby(false);
+    } else {
+      setRinkeby(true);
+    }
+  })();
+
   // This is the case where the user hasn't connected their wallet
   // to your web app. Let them call connectWallet.
   if (!address) {
     return (
       <div className="landing">
-        <h1>Welcome to UKDAO</h1>
-        <button onClick={() => connectWallet("injected")} className="btn-hero">
-          Connect your wallet
-        </button>
+        {rinkeby && <h1>Welcome to UKDAO</h1>}
+        {rinkeby === true ? (
+          <button
+            onClick={() => connectWallet("injected")}
+            className="btn-hero">
+            Connect your wallet
+          </button>
+        ) : (
+          <div className="unsupported-network">
+            <h2>Please connect to Rinkeby</h2>
+            <p>
+              This dapp only works on the Rinkeby network, please switch
+              networks in your connected wallet.
+            </p>
+          </div>
+        )}
       </div>
     );
   }
